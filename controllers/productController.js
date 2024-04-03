@@ -68,10 +68,23 @@ const product_delete = async (req, res) => {
   }
 };
 
+const product_search = async (req, res) => {
+  console.log(req.params.key)
+  let data = await Product.find({
+    "$or": [
+      { "title": { $regex: req.params.key, $options: "i" } },
+      { "price": { $regex: req.params.key, $options: "i" } },
+      { "details": { $regex: req.params.key, $options: "i" } }
+    ]
+  })
+  res.send(data)
+};
+
 module.exports = {
   product_all,
   product_details,
   product_create,
   product_update,
-  product_delete
+  product_delete,
+  product_search
 }

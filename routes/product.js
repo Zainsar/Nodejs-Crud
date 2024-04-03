@@ -6,5 +6,6 @@ router.get("/", productController.product_all);
 router.get("/:productId", productController.product_details);
 router.put("/:productId", productController.product_update);
 router.delete("/:productId", productController.product_delete);
+router.get("/search/:key", productController.product_search);
 
 module.exports = router;

@@ -8,16 +8,6 @@ const productRoutes = require("./routes/product");
 
 dotenv.config();
 
-
-// connect to db
-// mongoose.connect(
-//   process.env.DB_CONNECT,
-//   { useNewUrlParser: true, useUnifiedTopology: true },
-//   () => console.log("connected to db")
-// );
-
-// mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
-
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.DB_CONNECT, {
@@ -41,4 +31,4 @@ app.use(cors());
 // route Middlewares
 app.use("/api/products", productRoutes);
 
-app.listen(8080, () => console.log("server up and runing on port 4000!"));
+app.listen(8080, () => console.log("server up and runing on port 8080!"));
